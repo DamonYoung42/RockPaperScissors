@@ -16,7 +16,6 @@ namespace RockPaperScissors
 
         {
             computerPlayer = new Player("computer");
-            computerPlayer.SetComputerHand();
             continuePlaying = true;
 
         }
@@ -27,10 +26,11 @@ namespace RockPaperScissors
 
             while (continuePlaying) {
                 playerOne.SetChoice();
+                computerPlayer.SetComputerHand();
                 string result = CompareHands();
                 Console.WriteLine(result);
-                Console.WriteLine("Do you want to play again?");
-                if (Console.ReadLine().ToUpper() == "N")
+                Console.WriteLine("Do you want to play again: Y/N?");
+                if (Console.ReadLine().ToUpper() != "Y")
                 {
                     continuePlaying = false;
                 }

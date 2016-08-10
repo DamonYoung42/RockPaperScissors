@@ -19,8 +19,39 @@ namespace RockPaperScissors
 
         public void SetChoice()
         {
+
             Console.WriteLine("What is your choice -- Rock, Paper or Scissors?");
-            this.choice = Console.ReadLine();
+            //this.choice = Console.ReadLine();
+
+            string enteredChoice = "";
+            ConsoleKeyInfo info = Console.ReadKey(true);
+            while (info.Key != ConsoleKey.Enter)
+            {
+                if (info.Key != ConsoleKey.Backspace)
+                {
+                    Console.Write("*");
+                    enteredChoice += info.KeyChar;
+                }
+                else if (info.Key == ConsoleKey.Backspace)
+                {
+                    if (!string.IsNullOrEmpty(enteredChoice))
+                    {
+                        // remove one character from the list of password characters
+                        enteredChoice = enteredChoice.Substring(0, enteredChoice.Length - 1);
+                        // get the location of the cursor
+                        int pos = Console.CursorLeft;
+                        // move the cursor to the left by one character
+                        Console.SetCursorPosition(pos - 1, Console.CursorTop);
+                        // replace it with space
+                        Console.Write(" ");
+                        // move the cursor to the left by one character again
+                        Console.SetCursorPosition(pos - 1, Console.CursorTop);
+                    }
+                }
+                info = Console.ReadKey(true);
+            }
+            Console.WriteLine();
+            this.choice = enteredChoice;
         }
 
         public string GetChoice()

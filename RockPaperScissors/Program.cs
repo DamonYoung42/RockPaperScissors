@@ -12,8 +12,6 @@ namespace RockPaperScissors
         {
             Game game = new Game();
             game.RunGame();
-            Console.WriteLine("Goodbye!");
-
         }
     }
 }

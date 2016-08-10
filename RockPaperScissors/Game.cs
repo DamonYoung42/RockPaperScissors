@@ -35,7 +35,7 @@ namespace RockPaperScissors
                     continuePlaying = false;
                 }
             }
-
+            Console.WriteLine("Goodbye!");
         }
 
         public Player SetUser()
